@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('{{ url_for('static', filename='background.jpg') }}') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 50px auto;
+        }
+        form input, form button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 90%;
+            border-radius: 5px;
+            border: none;
+        }
+        form button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Titanic Survival Prediction</h1>
+        <form method="POST" action="/predict">
+            <input type="number" name="pclass" placeholder="Passenger Class (1, 2, 3)" 
+                   value="{{ form_data.pclass if form_data else '' }}" required>
+            <input type="text" name="sex" placeholder="Sex (male/female)" 
+                   value="{{ form_data.sex if form_data else '' }}" required>
+            <input type="number" step="0.1" name="age" placeholder="Age" 
+                   value="{{ form_data.age if form_data else '' }}" required>
+            <input type="number" name="sibsp" placeholder="Siblings/Spouses Aboard" 
+                   value="{{ form_data.sibsp if form_data else '' }}" required>
+            <input type="number" name="parch" placeholder="Parents/Children Aboard" 
+                   value="{{ form_data.parch if form_data else '' }}" required>
+            <input type="number" step="0.1" name="fare" placeholder="Fare" 
+                   value="{{ form_data.fare if form_data else '' }}" required>
+            <input type="text" name="embarked" placeholder="Embarked (C, Q, S)" 
+                   value="{{ form_data.embarked if form_data else '' }}" required>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+        <div class="result">{{ prediction }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
