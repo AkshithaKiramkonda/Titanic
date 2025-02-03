@@ -38,7 +38,6 @@ Features at a Glance
 
 📜 README.md              # This document!  
 
-🚀 Getting Started
 
 1️⃣ Clone This Repository
 
@@ -54,7 +53,7 @@ pip install -r requirements.txt
 
 python app.py
 
-🚢 Now, open your browser and set sail to http://127.0.0.1:5000/
+ Now, open your browser and set sail to http://127.0.0.1:5000/
 
 🔮 How It Works
 
