@@ -1,4 +1,5 @@
 🚢 Titanic Survival Predictor - Will You Survive?
+![titanic](back.jpg)
 
 🎩 Step aboard the Titanic—virtually! This interactive Flask web app predicts whether you would have survived the legendary voyage. Using a powerful Random Forest model, it analyzes key passenger details and determines your fate. Will you make it to safety or sink with the ship? Let’s find out!
 
